@@ -4,19 +4,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
 
 		<div style ="text-align: center; font-size: 1.5rem">
-		2023年12月3日まで
+		2023年12月24日まで
 		</div>
 
 		<div id="countdownArea" class="countdown" style="text-align: center; font-size: 1.5rem">
-			<span id="countdown-day"></span>日
-			<span id="countdown-hour"></span>時間
-			<span id="countdown-min"></span>分
-			<span id="countdown-sec"></span>秒
+			<input style="text-align: center; font-size: 1.5rem" id = "res"></input>
+			<div style = "display: none">
+				<span id="countdown-day"></span><span>日</span>
+				<span id="countdown-hour"></span><span>時間</span>
+				<span id="countdown-min"></span><span>分</span>
+				<span id="countdown-sec"></span><span>秒</span>
+			</div>
 		</div>
 		<script>
 			let countdown = setInterval(function(){
 			    const now = new Date()  //今の日時
-			    const target = new Date(2023, 11, 3,'23','59','59') //2023年12月3日
+			    const target = new Date(2023, 11, 24,'0','0','0') //2023年12月3日
 			    const remainTime = target - now  //差分を取る（ミリ秒で返ってくる
 
 			    //指定の日時を過ぎていたら処理をしない
@@ -32,10 +35,11 @@
 			    let secStr = zeroPadding(difSec, 2);
 
 			    //残りの日時を上書き
-			    document.getElementById("countdown-day").textContent  = difDay
-			    document.getElementById("countdown-hour").textContent = hourStr//difHour
-			    document.getElementById("countdown-min").textContent  = minStr//difMin
-			    document.getElementById("countdown-sec").textContent  = secStr//difSec
+			    document.getElementById("countdown-day").textContent  =difDay;
+			    document.getElementById("countdown-hour").textContent =hourStr;//difHour
+			    document.getElementById("countdown-min").textContent  =minStr;//difMin
+			    document.getElementById("countdown-sec").textContent  =secStr;//difSec
+			    document.getElementById("res").value = difDay + "日" + hourStr + "時間" + minStr + "分" + secStr + "秒";
 
 			    //指定の日時になればカウントを止める
 			    if(remainTime < 0) clearInterval(countdown)
