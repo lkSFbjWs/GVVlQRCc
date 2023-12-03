@@ -1,0 +1,9 @@
+.main {
+	text-align: center;
+	font-size: 1.5rem;
+	font-family: monospace;
+}
+
+.main_input{
+	width: 10em;
+}
