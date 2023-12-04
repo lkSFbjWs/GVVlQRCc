@@ -6,4 +6,6 @@
 
 .main_input{
 	width: 13em;
+	border: none;
+	outline: none;
 }
