@@ -19,8 +19,8 @@
 			</div>
 		</div>
 		<script>
-			let countdown = setInterval(function(){
-			    const now = new Date()  //今の日時
+			let countdownMain = function(){
+				    const now = new Date()  //今の日時
 			    const target = new Date(2023, 11, 24,'0','0','0') //2023年12月3日
 			    const remainTime = target - now  //差分を取る（ミリ秒で返ってくる
 
@@ -45,12 +45,17 @@
 
 			    //指定の日時になればカウントを止める
 			    if(remainTime < 0) clearInterval(countdown)
+			}
 
+			countdownMain();
+			let countdown = setInterval(function(){
+														countdownMain();
 			}, 1000)    //1秒間に1度処理
 
 			function zeroPadding(val, LEN){
 				return ( Array(LEN).join('0') + String(val) ).slice( -LEN );
 			}
+			
 		</script>
 	</body>
 </html>
