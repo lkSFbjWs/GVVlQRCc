@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
 
 		<div style ="" class ="main">
-			<span id="mainSpan">2024年2月16日から</span>
+			<span id="mainSpan"><!--2024年2月16日から2024年2月27日まで--></span>
 		</div>
 
 		<div id="countdownArea" class="countdown" style="text-align: center; font-size: 1.5rem">
@@ -22,15 +22,26 @@
 			let countdownMain = function(){
 				const now = new Date()  //今の日時
 				let year = 2024;
-				let month = 1;  
+				let month = 3;  
 				let monthStr = month;
 				month--; 
-				let day = 23;
+				let day = 27;
 				
-				document.getElementById("mainSpan").innerHTML = year + '年' + monthStr + '月' + day + '日から';
+				const target = new Date(year, month, day,'0','0','0') 
+				let remainTime = 0;
+				let karaOrMade = "";
+				if(now - target >= 0){ //差分を取る（ミリ秒で返ってくる）
+					remainTime = now - target
+					karaOrMade = "から";
+				}else{
+					remainTime = target - now
+					karaOrMade = "まで";
+				}
 				
-			    const target = new Date(year, month, day,'0','0','0') 
-			    const remainTime = now - target  //差分を取る（ミリ秒で返ってくる
+				document.getElementById("mainSpan").innerHTML = year + '年' + monthStr + '月' + day + '日' + karaOrMade;
+				
+			    
+
 
 			    //指定の日時を過ぎていたら処理をしない
 			    if(remainTime < 0) return false 
