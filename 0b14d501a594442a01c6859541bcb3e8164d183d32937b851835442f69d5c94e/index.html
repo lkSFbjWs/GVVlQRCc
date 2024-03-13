@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<link href="main.css" rel="stylesheet" />
+	</head>
+	<body>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+
+		<div style ="" class ="main">
+			<span id="mainSpan"><!--2024年2月16日から2024年2月27日まで--></span>
+		</div>
+
+		<div id="countdownArea" class="countdown" style="text-align: center; font-size: 1.5rem">
+			<input style="" class = "main main_input" id = "res"></input>
+			<div style = "display: none">
+				<span id="countdown-day"></span><span>日</span>
+				<span id="countdown-hour"></span><span>時間</span>
+				<span id="countdown-min"></span><span>分</span>
+				<span id="countdown-sec"></span><span>秒</span>
+			</div>
+		</div>
+		<script>
+			let countdownMain = function(){
+				const now = new Date()  //今の日時
+				let year = 2024;
+				let month = 3;  
+				let monthStr = month;
+				month--; 
+				let day = 27;
+				
+				const target = new Date(year, month, day,'0','0','0') 
+				let remainTime = 0;
+				let karaOrMade = "";
+				if(now - target >= 0){ //差分を取る（ミリ秒で返ってくる）
+					remainTime = now - target
+					karaOrMade = "から";
+				}else{
+					remainTime = target - now
+					karaOrMade = "まで";
+				}
+				
+				document.getElementById("mainSpan").innerHTML = year + '年' + monthStr + '月' + day + '日' + karaOrMade;
+				
+			    
+
+
+			    //指定の日時を過ぎていたら処理をしない
+			    if(remainTime < 0) return false 
+
+			    //差分の日・時・分・秒を取得
+			    const difDay  = Math.floor(remainTime / 1000 / 60 / 60 / 24)
+			    const difHour = Math.floor(remainTime / 1000 / 60 / 60 ) % 24
+			    let hourStr = zeroPadding(difHour, 2);
+			    const difMin  = Math.floor(remainTime / 1000 / 60) % 60
+			    let minStr = zeroPadding(difMin, 2);
+			    const difSec  = Math.floor(remainTime / 1000) % 60
+			    let secStr = zeroPadding(difSec, 2);
+
+			    //残りの日時を上書き
+			    document.getElementById("countdown-day").textContent  =difDay;
+			    document.getElementById("countdown-hour").textContent =hourStr;//difHour
+			    document.getElementById("countdown-min").textContent  =minStr;//difMin
+			    document.getElementById("countdown-sec").textContent  =secStr;//difSec
+			    document.getElementById("res").value = difDay + "日" + hourStr + "時間" + minStr + "分" + secStr + "秒";
+
+			    //指定の日時になればカウントを止める
+			    if(remainTime < 0) clearInterval(countdown)
+			}
+
+			countdownMain();
+			let countdown = setInterval(function(){
+														countdownMain();
+			}, 1000)    //1秒間に1度処理
+
+			function zeroPadding(val, LEN){
+				return ( Array(LEN).join('0') + String(val) ).slice( -LEN );
+			}
+			
+		</script>
+	</body>
+</html>
