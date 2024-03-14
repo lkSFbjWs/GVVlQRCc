@@ -52,7 +52,7 @@
 					karaOrMade = "まで";
 				}
 				
-				document.getElementById("mainSpan").innerHTML = year + '/' + monthStr + '/' + day + '' + karaOrMade;
+				document.getElementById("mainSpan").innerHTML = year + '年' + monthStr + '月' + day + '日' + karaOrMade;
 				
 			    
 
@@ -97,7 +97,7 @@
 			    const minutes = now.getMinutes().toString().padStart(2, '0');
 			    const seconds = now.getSeconds().toString().padStart(2, '0');
 
-			    const formattedDateTime = `${year}/${month}/${day}　${hours}:${minutes}:${seconds}`;
+			    const formattedDateTime = `${year}年${month}月${day}日${hours}時${minutes}分`;
 			    return formattedDateTime;
 			}
 		</script>
