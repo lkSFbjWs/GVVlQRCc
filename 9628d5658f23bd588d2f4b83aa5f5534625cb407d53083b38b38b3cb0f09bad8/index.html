@@ -15,15 +15,15 @@
 				<h4 id="" class = "mt-4 text-left font-monospace fw-bold">現在日時：</h4>
 				<h4 class = "text-center font-monospace fw-bold" id = "nowDate"></h4>
 				
-				<ul class="h6 my-4 lh-base list-unstyled font-monospace fw-bold">
+				<ul class="h6 my-4 lh-base font-monospace fw-bold">
 					<del><li>3月20日　午後0時から午後12時まで</li>
 					<li>3月21日から3月24日まで　午前7時から午後12時まで</li>
 					<li>3月25日　午前7時から午後2時まで</li></del>
-					<li>3月27日（水）　午前9時から午後12時まで〔午後9時以後とすること。〕</li>
-					<li>3月28日（木）　午前7時から午後12時まで〔午後9時以後とすること。〕</li>
-					<li>3月29日（金）　午前7時から午後12時まで〔午後9時以後とすること。〕</li>
-					<li class="text-danger">※3月29日午後3時が期限となる。</li>
-					<li>3月30日（<span class="text-primary">土</span>）　午前7時から午後12時まで〔午後3時以後とすること。〕</li>
+					<li>3月27日（水）　午前9時から午後12時まで<span class="text-success">〔午後9時30分以後とすること。〕</span></li>
+					<li>3月28日（木）　午前7時から午後12時まで<span class="text-success">〔午後9時30分以後とすること。〕</span></li>
+					<li>3月29日（金）　午前7時から午後12時まで<span class="text-success">〔午後9時30分以後とすること。〕</span><br>
+					<span class="text-danger">※3月29日午後3時が期限となる。</span></li>
+					<li>3月30日（<span class="text-primary">土</span>）　午前7時から午後12時まで<span class="text-success">〔午後6時以後とすること。〕</span></li>
 					<del><li>3月31日　午前7時から午後2時まで</li></del>
 				</ul>
 				
@@ -42,7 +42,7 @@
 				let month = 3;  
 				let monthStr = month;
 				month--; 
-				let day = 27;
+				let day = 30;
 				
 				const target = new Date(year, month, day,'0','0','0') 
 				let remainTime = 0;
