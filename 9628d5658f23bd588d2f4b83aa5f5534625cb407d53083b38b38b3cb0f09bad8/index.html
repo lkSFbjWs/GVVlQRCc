@@ -16,25 +16,18 @@
 				<h4 class = "text-center font-monospace fw-bold" id = "nowDate"></h4>
 				
 				<ul class="h6 my-4 lh-base font-monospace fw-bold">
-					<del><li>3月20日　午後0時から午後12時まで</li>
-					<li>3月21日から3月24日まで　午前7時から午後12時まで</li>
-					<li>3月25日　午前7時から午後2時まで</li></del>
-					<li>3月27日（水）　午前9時から午後12時まで<span class="text-success">〔午後9時30分以後とすること。〕</span></li>
-					<li>3月28日（木）　午前7時から午後12時まで<span class="text-success">〔午後9時30分以後とすること。〕</span></li>
-					<li>3月29日（金）　午前7時から午後12時まで<span class="text-success">〔午後9時30分以後とすること。〕</span><br>
-					<span class="text-danger">※3月29日午後3時が期限となる。</span></li>
-					<li>3月30日（<span class="text-primary">土</span>）　午前7時から午後12時まで<span class="text-success">〔午後5時以後とすること。〕</span></li>
-					<del><li>3月31日　午前7時から午後2時まで</li></del>
+					<li>4月19日（金）　午後5時から午後12時まで<span class="text-success"></span></li>
+					<li>4月20日（<span class="text-primary">土</span>）から4月28日（<span class="text-danger">日</span>）　午前7時から午後12時まで<span class="text-success"></span></li>
 				</ul>
 				
-				<h4 id="" class = "text-center mt-4 text-left font-monospace fw-bold">午後11時終了のときの開始時刻</h4>
+				<del><h4 id="" class = "text-center mt-4 text-left font-monospace fw-bold">午後11時終了のときの開始時刻</h4>
 				<h6 class="font-monospace fw-bold">午後11時終了のときの開始時刻は、次の各号に掲げる役務時間に応じ、当該各号に定める時刻となる。</h6>
 				<ol class="h6 lh-base font-monospace fw-bold">
 					<li>1時間　午後10時</li>
 					<li>1時間20分　午後9時40分</li>
 					<li>1時間40分　午後9時20分</li>
 					<li>2時間　午後9時</li>
-				</ol>
+				</ol></del>
 			</div>
 		</div>
 		
@@ -46,10 +39,10 @@
 			let countdownMain = function(){
 				const now = new Date()  //今の日時
 				let year = 2024;
-				let month = 3;  
+				let month = 4;  
 				let monthStr = month;
 				month--; 
-				let day = 30;
+				let day = 27;
 				
 				const target = new Date(year, month, day,'0','0','0') 
 				let remainTime = 0;
