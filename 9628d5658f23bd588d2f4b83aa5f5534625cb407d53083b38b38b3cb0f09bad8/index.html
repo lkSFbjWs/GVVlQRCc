@@ -14,6 +14,7 @@
 				
 				<h4 id="" class = "mt-4 text-left font-monospace fw-bold">現在日時：</h4>
 				<h4 class = "text-center font-monospace fw-bold" id = "nowDate"></h4>
+				<h4 class = "text-center font-monospace fw-bold" id = "nowDatePercent"></h4>
 				
 				<ul class="h6 my-4 lh-base font-monospace fw-bold">
 					<li>4月19日（金）　午後5時から午後12時まで<span class="text-success"></span></li>
@@ -36,7 +37,17 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/moment.min.js"></script>
 		<script>
+			let nowunix = moment().unix();
+			let nowYearStr = moment().format("YYYY");
+			let startunix = moment(nowYearStr + "-01-01T00:00:00").unix();
+			let endunix = moment(nowYearStr + "-12-31T23:59:59").unix();
+			let oneYearUnix = endunix - startunix;
+			let nowunix2 = nowunix - startunix;
+			let percent = Math.round((nowunix2 / oneYearUnix) * 100 * 10) / 10;
+			
+			//alert(percent);
 			let countdownMain = function(){
 				const now = new Date()  //今の日時
 				let year = 2024;
@@ -81,6 +92,7 @@
 			    
 			    //現在日時を設定
 			    document.getElementById("nowDate").textContent = getNowFormattedDateTime();
+			    document.getElementById("nowDatePercent").textContent = "今年：" + percent + "%";
 			}
 
 			countdownMain();
